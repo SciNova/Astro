@@ -3,14 +3,14 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "Astro"
-version = "1.9"
-description = "Astronomy utilities from Reuben Institute — celestial location, sun/moon position calculations, and geo coordinates"
-readme = { text = "Astronomy utilities from Reuben Institute — celestial location, sun/moon position calculations, and geo coordinates.", content-type = "text/plain" }
+name = "python-astro"
+version = "1.10"
+description = "Astronomy utilities — celestial location, sun/moon position calculations, and geo coordinates"
+readme = { text = "Astronomy utilities — celestial location, sun/moon position calculations, and geo coordinates.", content-type = "text/plain" }
 license = "GPL-3.0-or-later"
 requires-python = ">=3.8"
 dependencies = [
-    "Date",
+    "python-date",
 ]
 
 [tool.setuptools]

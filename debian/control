@@ -9,5 +9,5 @@ Package: python3-astro
 Architecture: all
 Depends: ${python3:Depends}, ${misc:Depends}, python3-date
 Description: Astronomy utilities
- Astronomy utilities from SciNova — celestial location, sun/moon
- position calculations, and geo coordinates.
+ Astronomy utilities for celestial location, sun/moon position
+ calculations, and geo coordinates.
