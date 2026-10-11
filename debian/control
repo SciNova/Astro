@@ -1,0 +1,13 @@
+Source: astro
+Section: python
+Priority: optional
+Maintainer: SciNova <scinovasystems@gmail.com>
+Build-Depends: debhelper-compat (= 13), dh-python, pybuild-plugin-pyproject, python3-all, python3-setuptools
+Standards-Version: 4.6.2
+
+Package: python3-astro
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3-date
+Description: Astronomy utilities
+ Astronomy utilities from SciNova — celestial location, sun/moon
+ position calculations, and geo coordinates.
