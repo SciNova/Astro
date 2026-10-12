@@ -1,10 +1,10 @@
 from enum import IntEnum
 import math
 
-import Astro
-from Astro import CelestialLocation
-from Date import DateTime, Date, Time
-from Sun import Sun
+import astro
+from astro import CelestialLocation
+from date import DateTime, Date, Time
+from sun import Sun
 
 RAD = math.pi / 180.0
 
@@ -129,12 +129,12 @@ class Moon:
 		l = L + RAD * 6.289 * math.sin(M)
 		b = RAD * 5.128 * math.sin(F)
 		ra = math.atan2(
-			math.sin(l) * math.cos(Astro.EARTH_OBLIQUITY) - math.tan(b) * math.sin(Astro.EARTH_OBLIQUITY),
+			math.sin(l) * math.cos(astro.EARTH_OBLIQUITY) - math.tan(b) * math.sin(astro.EARTH_OBLIQUITY),
 			math.cos(l)
 		)
 		dec = math.asin(
-			math.sin(b) * math.cos(Astro.EARTH_OBLIQUITY) +
-			math.cos(b) * math.sin(Astro.EARTH_OBLIQUITY) * math.sin(l)
+			math.sin(b) * math.cos(astro.EARTH_OBLIQUITY) +
+			math.cos(b) * math.sin(astro.EARTH_OBLIQUITY) * math.sin(l)
 		)
 		return CelestialLocation(ra, dec)
 
@@ -273,14 +273,14 @@ class Moon:
 	@staticmethod
 	def declination(L, b):
 		return math.asin(
-			math.sin(b) * math.cos(Astro.EARTH_OBLIQUITY) +
-			math.cos(b) * math.sin(Astro.EARTH_OBLIQUITY) * math.sin(L)
+			math.sin(b) * math.cos(astro.EARTH_OBLIQUITY) +
+			math.cos(b) * math.sin(astro.EARTH_OBLIQUITY) * math.sin(L)
 		)
 
 	@staticmethod
 	def rightAscension(L, b):
 		return math.atan2(
-			math.sin(L) * math.cos(Astro.EARTH_OBLIQUITY) - math.tan(b) * math.sin(Astro.EARTH_OBLIQUITY),
+			math.sin(L) * math.cos(astro.EARTH_OBLIQUITY) - math.tan(b) * math.sin(astro.EARTH_OBLIQUITY),
 			math.cos(L)
 		)
 
@@ -337,8 +337,8 @@ class MoonPhaseTypeNames:
 
 if __name__ == "__main__":
 	import time as _systime
-	from Date import DateTime, Date, Time
-	from Geo import Place
+	from date import DateTime, Date, Time
+	from geo import Place
 
 	now = _systime.localtime()
 	today = Date(now.tm_year, now.tm_mon, now.tm_mday)

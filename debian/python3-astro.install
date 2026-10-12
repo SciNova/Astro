@@ -1,0 +1,4 @@
+astro.py usr/lib/python3/dist-packages/astro/
+moon.py usr/lib/python3/dist-packages/astro/
+sun.py usr/lib/python3/dist-packages/astro/
+__init__.py usr/lib/python3/dist-packages/astro/

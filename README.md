@@ -1,4 +1,3 @@
 # Astro
 
-Astronomy utilities for celestial location, sun/moon position calculations,
-and geo coordinates.
+Astronomy utilities for celestial location and sun/moon position calculations.

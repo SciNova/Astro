@@ -1,8 +1,8 @@
 import math
 
-import Astro
-from Astro import CelestialLocation
-from Date import DateTime, Date, Time
+import astro
+from astro import CelestialLocation
+from date import DateTime, Date, Time
 
 RAD = math.pi / 180.0
 
@@ -56,11 +56,11 @@ class Sun:
 		P = RAD * 102.9372
 		L = M + C + P + math.pi
 		dec = math.asin(
-			math.sin(0.0) * math.cos(Astro.EARTH_OBLIQUITY) +
-			math.cos(0.0) * math.sin(Astro.EARTH_OBLIQUITY) * math.sin(L)
+			math.sin(0.0) * math.cos(astro.EARTH_OBLIQUITY) +
+			math.cos(0.0) * math.sin(astro.EARTH_OBLIQUITY) * math.sin(L)
 		)
 		ra = math.atan2(
-			math.sin(L) * math.cos(Astro.EARTH_OBLIQUITY) - math.tan(0.0) * math.sin(Astro.EARTH_OBLIQUITY),
+			math.sin(L) * math.cos(astro.EARTH_OBLIQUITY) - math.tan(0.0) * math.sin(astro.EARTH_OBLIQUITY),
 			math.cos(L)
 		)
 		return CelestialLocation(ra, dec)
@@ -111,13 +111,13 @@ class Sun:
 		return DateTime.fromjulianday(Jnoon - (Jset - Jnoon) if rising else Jset)
 
 	def _julianCycle(self, d, lw):
-		return round(d - Astro.J2000 - 0.0009 - lw / (2.0 * math.pi))
+		return round(d - astro.J2000 - 0.0009 - lw / (2.0 * math.pi))
 
 	def _approxTransit(self, Ht, lw, n):
 		return 0.0009 + (Ht + lw) / (2.0 * math.pi) + n
 
 	def _solarTransitJ(self, ds, M, L):
-		return Astro.J2000 + ds + 0.0053 * math.sin(M) - 0.0069 * math.sin(2.0 * L)
+		return astro.J2000 + ds + 0.0053 * math.sin(M) - 0.0069 * math.sin(2.0 * L)
 
 	def _solarMeanAnomaly(self, daysSinceJ2000):
 		return RAD * (357.5291 + 0.98560028 * daysSinceJ2000)
@@ -129,13 +129,13 @@ class Sun:
 
 	def _declination(self, L, b):
 		return math.asin(
-			math.sin(b) * math.cos(Astro.EARTH_OBLIQUITY) +
-			math.cos(b) * math.sin(Astro.EARTH_OBLIQUITY) * math.sin(L)
+			math.sin(b) * math.cos(astro.EARTH_OBLIQUITY) +
+			math.cos(b) * math.sin(astro.EARTH_OBLIQUITY) * math.sin(L)
 		)
 
 	def _rightAscension(self, L, b):
 		return math.atan2(
-			math.sin(L) * math.cos(Astro.EARTH_OBLIQUITY) - math.tan(b) * math.sin(Astro.EARTH_OBLIQUITY),
+			math.sin(L) * math.cos(astro.EARTH_OBLIQUITY) - math.tan(b) * math.sin(astro.EARTH_OBLIQUITY),
 			math.cos(L)
 		)
 
